@@ -2,9 +2,9 @@
 % it modifies the original poster class by
 % Philippe Dreuw <dreuw@cs.rwth-aachen.de> and 
 % Thomas Deselaers <deselaers@cs.rwth-aachen.de>
-% v0.2 by Erich L Foster 09 July 2013
+% adapted by Erich L Foster <efoster@bcamath.org>
 %%% IDENTIFICATION --------------------------------------------------------
-\def\NWPoster@version{0.2}
+\def\NWPoster@version{0.3}
 \def\NWPoster@date{2013/05/09}
 \def\NWPoster@msg{NWPoster: latex-beamer poster class}
 \typeout{Package: \NWPoster@date. v.\NWPoster@version. \NWPoster@msg}
@@ -136,7 +136,7 @@
 \ExecuteOptions{size=a0b,scale=1.0}
 \ProcessOptions*
 
-\edef\scale{1.15}
+\edef\scale{1.0}
 
 \setlength{\paperwidth}{\@paperwidth}
 \setlength{\paperheight}{\@paperheight}
@@ -250,6 +250,8 @@
 
 \newcommand{\makeruleinbox}{{\usebeamercolor[bg]{block alerted title}\centering\hspace*{-0.7cm}\rule{\inboxrule}{0.5cm}}}
 \usepackage{ragged2e}
+
+\linespread{1.3}
 
 \setbeamerfont{block body}{family=\sffamily}
 
@@ -430,11 +432,4 @@
 
 \AtBeginDocument{
   \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{figures/overlay11}}
-
-%  \begin{frame}[t]
-%  \vskip-4ex
 }
-
-%\AtEndDocument{
-%  \end{frame}
-%}
