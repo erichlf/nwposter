@@ -1,7 +1,16 @@
-% v0.1 by Erich L Foster 05 July 2013
+% This is a beamer poster class developed for the NUMERIWAVES project 
+% it modifies the original poster class by
+% Philippe Dreuw <dreuw@cs.rwth-aachen.de> and 
+% Thomas Deselaers <deselaers@cs.rwth-aachen.de>
+% v0.2 by Erich L Foster 09 July 2013
 %%% IDENTIFICATION --------------------------------------------------------
-\NeedsTeXFormat{LaTeX2e}[01/01/10]
-\ProvidesClass{numeriwaves}[05/07/2013 v0.1 NUMERIWAVES poster]
+\def\NWPoster@version{0.2}
+\def\NWPoster@date{2013/05/09}
+\def\NWPoster@msg{NWPoster: latex-beamer poster class}
+\typeout{Package: \NWPoster@date. v.\NWPoster@version. \NWPoster@msg}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{NWPoster}[\NWPoster@date. v.\NWPoster@version. \NWPoster@msg]
 
 \LoadClass[final,8pt]{beamer}
 
@@ -38,9 +47,9 @@
 \newif\ifdebug
 
 \DeclareOptionX{size}[a0b]{
-  \typeout{beamerposter: checking size input, please wait.}
+  \typeout{NWPoster: checking size input, please wait.}
   \XKV@cc*+[\val\nr]{#1}{a0b,a0,a1,a2,a3,a4,custom}{%
-    \typeout{beamerposter: the input \val\ \nr\ was correct, we proceed.}
+    \typeout{NWPoster: the input \val\ \nr\ was correct, we proceed.}
     \ifcase\nr\relax
     %a0b
     \setlength{\paperwidth}{119cm}
@@ -81,29 +90,29 @@
     \customsizetrue
     \fi    
   }{%
-    \PackageWarning{beamerposter}{the input \val\ was incorrect and was ignored.}
+    \PackageWarning{NWPoster}{the input \val\ was incorrect and was ignored.}
   }%
-  \typeout{beamerposter: finished size input check.}
+  \typeout{NWPoster: finished size input check.}
 }
 \DeclareOptionX{orientation}[portrait]{
-  \typeout{beamerposter: checking orientation input, please wait.}
+  \typeout{NWPoster: checking orientation input, please wait.}
   \XKV@cc*+[\val\nr]{#1}{portrait,landscape}{%
-    \typeout{beamerposter: the input \val\ \nr\ was correct, we proceed.}
+    \typeout{NWPoster: the input \val\ \nr\ was correct, we proceed.}
     \ifcase\nr\relax
     \portraittrue
     \or
     \portraitfalse
     \fi    
   }{%
-    \PackageWarning{beamerposter}{the input \val\ was incorrect and was ignored.}
+    \PackageWarning{NWPoster}{the input \val\ was incorrect and was ignored.}
   }%
-  \typeout{beamerposter: finished orientation check.}
+  \typeout{NWPoster: finished orientation check.}
 }
-\DeclareOptionX{scale}[1.0]{\edef\myfontscale{#1}\typeout{beamerposter: myfontscale=\myfontscale}}
-\DeclareOptionX{width}{\edef\customwidth{#1}\typeout{beamerposter: custom poster width=\customwidth}}
-\DeclareOptionX{height}{\edef\customheight{#1}\typeout{beamerposter: custom poster height=\customheight}}
-\DeclareOptionX{debug}{\typeout{beamerposter: enabled debug mode}\debugtrue}
-\DeclareOptionX*{\PackageWarning{beamerposter}{Unknown option ignored: \CurrentOption}}
+\DeclareOptionX{scale}[1.0]{\edef\myfontscale{#1}\typeout{NWPoster: myfontscale=\myfontscale}}
+\DeclareOptionX{width}{\edef\customwidth{#1}\typeout{NWPoster: custom poster width=\customwidth}}
+\DeclareOptionX{height}{\edef\customheight{#1}\typeout{NWPoster: custom poster height=\customheight}}
+\DeclareOptionX{debug}{\typeout{NWPoster: enabled debug mode}\debugtrue}
+\DeclareOptionX*{\PackageWarning{NWPoster}{Unknown option ignored: \CurrentOption}}
 %\DeclareOptionX*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ExecuteOptionsX{size=a0,scale=1.0}
 \ProcessOptionsX\relax
@@ -144,8 +153,8 @@
 
 %% For the page layout
 \ifdebug
-\typeout{beamerposter: paperwidth=\the\paperwidth, paperheight=\the\paperheight}
-\typeout{beamerposter: textwidth=\the\textwidth, textwidth=\the\textheight}
+\typeout{NWPoster: paperwidth=\the\paperwidth, paperheight=\the\paperheight}
+\typeout{NWPoster: textwidth=\the\textwidth, textwidth=\the\textheight}
 \fi
 \geometry{
   paperwidth=\the\paperwidth,
@@ -279,7 +288,7 @@
 \institute{
   \includegraphics[height=5cm]{figures/logo} \hspace{1in} 
   \includegraphics[height=5cm]{figures/erc-logo} \hspace{1in} 
-  \begin{minipage}{\numeriwaves@cWidth}
+  \begin{minipage}{\NWPoster@cWidth}
     {\large\textcolor{black}{\textbf{Principal Investigator: \@principalInvestigator}}}\\
     \textbf{Current members: }{\bf \@currentMembers}\\
     \vskip 1mm
