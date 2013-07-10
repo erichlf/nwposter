@@ -426,6 +426,9 @@
   \vskip\smallskipamount
 }
 
+\DeclareMathOperator{\divergence}{div}
+\renewcommand{\div}{\divergence}
+
 % Warning there be dragons here, don't move the next line it must be here,
 % so that \int is the correct size
 \AtEndPreamble{\usepackage{exscale}} 
